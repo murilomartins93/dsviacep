@@ -29,5 +29,20 @@ export function init() {
     state.btnSave = document.forms.newAddress.btnSave;
     state.btnClear = document.forms.newAddress.btnClear;
 
-    console.log(state);
+    state.inputNumber.addEventListener('change', handleInputNumberChange);
+
+}
+
+function handleInputNumberChange(event) {
+    if(event.target.value == "") {
+        setFormError("number", "Campo requerido");
+    }
+    else {
+        setFormError("number", " ");
+    }
+}
+
+function setFormError(key, value) {
+    const element = document.querySelector(`[data-error="${key}"]`);
+    element.innerHTML = value;
 }
