@@ -30,6 +30,7 @@ export function init() {
     state.btnClear = document.forms.newAddress.btnClear;
 
     state.inputNumber.addEventListener('change', handleInputNumberChange);
+    state.btnClear.addEventListener('click', handleBtnClearClick);
 
 }
 
@@ -38,8 +39,25 @@ function handleInputNumberChange(event) {
         setFormError("number", "Campo requerido");
     }
     else {
-        setFormError("number", " ");
+        setFormError("number", "");
     }
+}
+
+function handleBtnClearClick(event) {
+    event.preventDefault();
+    clearForm();
+}
+
+function clearForm() {
+    state.inputCep.value = "";
+    state.inputStreet.value = "";
+    state.inputNumber.value = "";
+    state.inputCity.value = "";
+    
+    setFormError("cep", "");
+    setFormError("number", "");
+
+    state.inputCep.focus();
 }
 
 function setFormError(key, value) {
