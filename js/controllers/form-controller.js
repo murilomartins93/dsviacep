@@ -1,4 +1,8 @@
+import Address from '../models/address.js';
+
 function State() {
+    this.Address = new Address();
+
     this.inputCep = null;
     this.inputStreet = null;
     this.inputNumber = null;
