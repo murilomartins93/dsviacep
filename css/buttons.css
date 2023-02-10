@@ -1,0 +1,35 @@
+@keyframes btn-hover {
+    from {background-color: #ff8400;}
+    to {background-color: wheat;}
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 250px;
+    height: 50px;
+    background-color: #ff8400;
+    border: 0;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.btn:hover {
+    animation-name: btn-hover;
+    animation-duration: 1s;
+    background-color: wheat;
+    color: #ff8400;
+}
+
+.btn-left {
+    margin-right: 10px;
+}
+
+.btn-right {
+    margin-left: 10px;    
+}
