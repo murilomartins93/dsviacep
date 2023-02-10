@@ -1,5 +1,6 @@
 import Address from "../models/address.js";
 import * as addressService from "../services/address-service.js";
+import * as listController from "../controllers/list-controller.js";
 
 function State() {
   this.Address = new Address();
@@ -30,11 +31,11 @@ export function init() {
   state.btnSave = document.forms.newAddress.btnSave;
   state.btnClear = document.forms.newAddress.btnClear;
 
-  state.inputNumber.addEventListener('change', handleInputNumberChange);
-  state.inputNumber.addEventListener('keyup', handleInputNumberKeyUp);
-  state.btnClear.addEventListener('click', handleBtnClearClick);
-  state.btnSave.addEventListener('click', handleBtnSaveClick);
-  state.inputCep.addEventListener('change', handleInputCepChange);
+  state.inputNumber.addEventListener("change", handleInputNumberChange);
+  state.inputNumber.addEventListener("keyup", handleInputNumberKeyUp);
+  state.btnClear.addEventListener("click", handleBtnClearClick);
+  state.btnSave.addEventListener("click", handleBtnSaveClick);
+  state.inputCep.addEventListener("change", handleInputCepChange);
 }
 
 function handleInputNumberChange(event) {
@@ -46,7 +47,7 @@ function handleInputNumberChange(event) {
 }
 
 function handleInputNumberKeyUp(event) {
-    state.address.number = event.target.value;
+  state.address.number = event.target.value;
 }
 
 function handleBtnClearClick(event) {
@@ -55,9 +56,9 @@ function handleBtnClearClick(event) {
 }
 
 async function handleBtnSaveClick(event) {
-    event.preventDefault();
-    console.log(state.address);
-  }
+  event.preventDefault();
+  listController.addCard(state.address);
+}
 
 async function handleInputCepChange(event) {
   const cep = event.target.value;
